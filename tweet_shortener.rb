@@ -28,21 +28,22 @@ def bulk_tweet_shortener(arrayOfTweets)
 	end
 end
 
-def selective_tweet_shortener(arrayOfTweets)
-	newArr = []
-	for string in arrayOfTweets
-		if string.length > 140
-			newArr << word_substitute(string)
-		elsif string.length < 130
-			newArr << string
-		end
-	end
-	newArr
+def selective_tweet_shortener(string)
+  if string.length > 140
+    word_substituter(string)
+  elsif string.length < 130
+    string
+  else
+    string
+  end
 end
 
 def shortened_tweet_truncator(string)
 	if string.length > 140
-		return string[1..140] + "..."
+		return string[0...137] + "..."
+	else
+		return string
 	end
 end
+
 
